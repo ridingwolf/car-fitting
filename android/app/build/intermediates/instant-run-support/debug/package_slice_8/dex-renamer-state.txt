@@ -1,4 +1,0 @@
-#Mon Dec 04 21:30:23 CET 2017
-base.0=/data/repositories/car-fitting/android/app/build/intermediates/transforms/dexMerger/debug/8
-path.0=classes.dex
-renamed.0=classes.dex
