@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import { colors } from '../theme';
 import CarItem from './carListItem';
+import Contianer from './listScreen.container';
 
 class ListScreen extends PureComponent {
 
@@ -24,7 +25,8 @@ class ListScreen extends PureComponent {
 	}
 
 	render(){
-		console.log('state:', { state:  this.state });
+		const { cars } = this.props;
+
 		return (
 			<View style={styles.screen}>
 				<View style={styles.header}>
@@ -32,8 +34,8 @@ class ListScreen extends PureComponent {
 				</View>
 				<FlatList
 					style={styles.list}
-					data={this.state.cars}
-					keyExtractor={item => item.name}
+					data={cars}
+					keyExtractor={item => item.id}
 					renderItem={({item}) => <CarItem {...item}/>}
 				/>
 				<TouchableOpacity
@@ -59,9 +61,13 @@ const styles = StyleSheet.create({
 	list: {
 		width: '100%',
 		flex: 1,
+		borderTopWidth: 2,
+		borderColor: colors.fuchsia,
 	},
 	addButton: {
 		borderRadius: 20,
+		borderWidth: 1,
+		borderColor: colors.white,
 		height: 40,
 		width: 40,
 		backgroundColor: colors.fuchsia,
@@ -78,4 +84,4 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default ListScreen;
+export default Contianer(ListScreen);
