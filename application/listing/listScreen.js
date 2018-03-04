@@ -7,25 +7,24 @@ import {
 	TouchableOpacity,
 } from 'react-native';
 import { colors } from '../theme';
-import CarItem from './carListItem';
-import Contianer from './listScreen.container';
+import CarReview from './carReview';
+import Container from './listScreen.container';
 
 class ListScreen extends PureComponent {
 
-	constructor(props){
-		super(props);
-		this.state = {
-			cars : [],
-		};
+	addReview(){
+		const generateId = () => null;
+		this.edit(generateId())
 	}
 
-	addCar(){
-		const cars = [...this.state.cars, { name: 'dummy-' + this.state.cars.length }];
-		this.setState({ cars })
+	edit(reviewId){
+		const { navigation = {} } = this.props;
+		console.log('navigate clicked', navigation, this.props);
+		navigation && navigation.navigate('Edit');
 	}
 
 	render(){
-		const { cars } = this.props;
+		const { reviews } = this.props;
 
 		return (
 			<View style={styles.screen}>
@@ -34,13 +33,13 @@ class ListScreen extends PureComponent {
 				</View>
 				<FlatList
 					style={styles.list}
-					data={cars}
+					data={reviews}
 					keyExtractor={item => item.id}
-					renderItem={({item}) => <CarItem {...item}/>}
+					renderItem={({item}) => <CarReview {...item}/>}
 				/>
 				<TouchableOpacity
 					style={styles.addButton}
-					onPress={e => this.addCar()}
+					onPress={e => this.addReview()}
 				>
 					<Text style={styles.addButtonText}>+</Text>
 				</TouchableOpacity>
@@ -84,4 +83,4 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default Contianer(ListScreen);
+export default Container(ListScreen);

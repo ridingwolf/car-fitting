@@ -2,7 +2,7 @@ import { createContainer } from '../libs/containerBinding'
 
 const mapStateToProps = state => {
 	return {
-		cars : state.cars
+		reviews : state.reviews,
 	}
 };
 

@@ -1,4 +1,15 @@
 import React from 'react';
-import CarListScreen from './overview/listScreen'
+import { StackNavigator } from 'react-navigation';
+import CarListScreen from './listing/listScreen';
+import EditScreen from './edit/editScreen';
 
-export default (props) => <CarListScreen/>;
+const ApplicationNavigator = StackNavigator({
+	Home: {
+		screen: CarListScreen
+	},
+	Edit: {
+		screen: EditScreen
+	}
+});
+
+export default ApplicationNavigator;
