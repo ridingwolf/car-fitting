@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import { colors } from '../theme';
 import CarItem from './carListItem';
-import Contianer from './listScreen.container';
+import Container from './listScreen.container';
 
 class ListScreen extends PureComponent {
 
@@ -84,4 +84,4 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default Contianer(ListScreen);
+export default Container(ListScreen);
